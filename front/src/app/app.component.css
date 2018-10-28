@@ -1,0 +1,10 @@
+mat-sidenav {
+  background-color: blueviolet;
+  padding: 10px;
+}
+
+mat-sidenav-content {
+  background-color: yellow;
+  min-height: 800px;
+  padding: 10px;
+}
