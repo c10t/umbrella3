@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,6 +19,7 @@ import { FacetComponent } from './facet/facet.component';
 import { MainComponent } from './main/main.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +28,14 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     FacetComponent,
     MainComponent,
     SearchBoxComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
     MatCardModule,
     MatDatepickerModule,
     MatFormFieldModule,

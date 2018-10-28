@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Story {
-  posted: Date;
-  title: string;
-}
+import { Story } from '../story';
+import { StoryService } from '../story.service';
 
 @Component({
   selector: 'app-search-results',
@@ -12,23 +9,15 @@ export interface Story {
 })
 export class SearchResultsComponent implements OnInit {
 
-  constructor() { }
+  stories: Story[];
+
+  constructor(private storyService: StoryService) { }
 
   ngOnInit() {
+    this.getStories();
   }
 
-  stories: Story[] = [
-    {
-      title: "example1",
-      posted: new Date('10/28/18')
-    },
-    {
-      title: "example2",
-      posted: new Date('10/27/18')
-    },
-    {
-      title: "example3",
-      posted: new Date('10/26/18')
-    }
-  ]
+  getStories(): void {
+    this.storyService.getStories().subscribe(stories => this.stories = stories);
+  }
 }
