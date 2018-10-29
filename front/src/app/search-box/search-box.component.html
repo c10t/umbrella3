@@ -14,8 +14,8 @@
     <h3 mat-subheader>Stories</h3>
     <mat-list-option *ngFor="let story of stories$ | async" class="result-item">
       <mat-icon class="story-icon" mat-list-icon>folder</mat-icon>
-      <h4 class="story-title" mat-line>{{story.title}}</h4>
-      <p mat-line> {{story.posted | date}} </p>
+      <h4 class="story-title" mat-line>{{ story.title }}</h4>
+      <p mat-line> {{ story.time * 1000 | date:'medium' }} </p>
     </mat-list-option>
   </mat-selection-list>
 </mat-card>
