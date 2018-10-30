@@ -1,3 +1,7 @@
 .icon-in-input {
-  margin: 3px;
+  margin: 8px;
+}
+
+.search-box-field {
+  width: 100%;
 }
