@@ -23,6 +23,7 @@ import { MainComponent } from './main/main.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MessagesComponent } from './messages/messages.component';
+import { SearchViewComponent } from './search-view/search-view.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MessagesComponent } from './messages/messages.component';
     MainComponent,
     SearchBoxComponent,
     SearchResultsComponent,
-    MessagesComponent
+    MessagesComponent,
+    SearchViewComponent
   ],
   imports: [
     BrowserModule,
