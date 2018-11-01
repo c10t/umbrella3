@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, abort
 
 app = Flask(__name__)
 
@@ -8,6 +8,17 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return "<h3>Hello World!</h3>"
+
+
+@app.route("/api/story/<id>", methods=['GET'])
+def getStory(id):
+    print(f"get {id}")
+    story = search(id)
+    print(story)
+    if story is None:
+        abort(404)
+
+    return make_response(jsonify(story))
 
 
 @app.route("/api/stories", methods=['GET'])
@@ -20,6 +31,21 @@ def read():
         stories = json.load(f)
 
     return stories
+
+
+def search(id):
+    stories = read()
+    for story in stories:
+        if str(id) == str(story["id"]):
+            return story
+
+    return None
+
+
+@app.errorhandler(404)
+def not_found(err):
+    print(err)
+    return jsonify(error="404 Not Found")
 
 
 if __name__ == '__main__':
