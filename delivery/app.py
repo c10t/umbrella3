@@ -1,13 +1,13 @@
 import json
 
-from flask import Flask, jsonify, make_response, abort
+from flask import Flask, jsonify, make_response, abort, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return "<h3>Hello World!</h3>"
+    return render_template("index.html")
 
 
 @app.route("/api/story/<id>", methods=['GET'])
