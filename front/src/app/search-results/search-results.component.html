@@ -1,7 +1,7 @@
 <mat-card class="app-search-results">
   <mat-selection-list>
     <h3 mat-subheader>Stories</h3>
-    <mat-list-option *ngFor="let story of stories" class="result-item">
+    <mat-list-option *ngFor="let story of stories$ | async" class="result-item">
       <mat-icon class="story-icon" mat-list-icon>folder</mat-icon>
       <h4 class="story-title" mat-line>{{ story.title }}</h4>
       <p mat-line> {{ story.time * 1000 | date:'medium' }} </p>

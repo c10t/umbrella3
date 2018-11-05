@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Story } from '../story';
 import { StoryService } from '../story.service';
 
@@ -9,7 +10,7 @@ import { StoryService } from '../story.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  stories: Story[];
+  @Input() stories$: Observable<Story[]>;
 
   constructor(private storyService: StoryService) { }
 
@@ -18,6 +19,6 @@ export class SearchResultsComponent implements OnInit {
   }
 
   getStories(): void {
-    this.storyService.getStories().subscribe(stories => this.stories = stories);
+    this.stories$ = this.storyService.getStories();
   }
 }

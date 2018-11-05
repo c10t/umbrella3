@@ -37,13 +37,15 @@ export class StoryService {
   getStories(): Observable<Story[]> {
     return this.http.get<Story[]>(this.storiesURL)
       .pipe(
-        tap(stories => this.log("fetched stories")),
+        tap(stories => this.log(
+          "fetched stories " + stories.map(s => s.id).join(" / "))),
         catchError(this.handleError("getStories", []))
       );
   }
 
   /** GET stories title contains search term */
   searchStories(term: string): Observable<Story[]> {
+    console.log("search stories...");
     if (!term.trim()) {
       this.log("trim... fetch all");
       // return of([]);
